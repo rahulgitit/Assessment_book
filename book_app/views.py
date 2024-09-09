@@ -44,11 +44,6 @@ class Bookdata(ModelViewSet):
     authentication_classes=[JWTAuthentication]
    
     
-    # def get_permissions(self):
-    #     if self.request.method in ['POST','PUT', 'DELETE']:
-    #             self.permission_classes = [IsAuthenticated]
-                
-    #     return super().get_permissions()
     
 
 # Create your views here.
@@ -74,6 +69,7 @@ def delete(request,id):
         dt=Book.objects.get(pk=id)
         dt.delete()
         return redirect('/home')
+    
 def edit(request,id):
     if request.method =="POST":
         dt=Book.objects.get(pk=id)
