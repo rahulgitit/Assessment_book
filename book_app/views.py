@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import authenticate
-from rest_framework.permissions import IsAuthenticated,AllowAny
+from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
  
 
@@ -37,16 +37,19 @@ class LoginView(APIView):
 
 
 class Bookdata(ModelViewSet):
-    # permission_classes=[IsAuthenticated]
-    authentication_classes=[JWTAuthentication]
+    
     queryset=Book.objects.all()
     serializer_class=BookSerializers
-    def get_permissions(self):
-        if self.request.method in ['POST','PUT', 'DELETE']:
-                self.permission_classes = [IsAuthenticated]
+    permission_classes=[IsAuthenticatedOrReadOnly]
+    authentication_classes=[JWTAuthentication]
+   
+    
+    # def get_permissions(self):
+    #     if self.request.method in ['POST','PUT', 'DELETE']:
+    #             self.permission_classes = [IsAuthenticated]
                 
-        return super().get_permissions()
-
+    #     return super().get_permissions()
+    
 
 # Create your views here.
 
