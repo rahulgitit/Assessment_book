@@ -72,9 +72,9 @@
 </body> -->
 <body style="background: #8099c0;">
   <div class="container-flude">
-      <div class="row">
+      <div class="row m-1">
         <h1 class="text-center bg-success p-4 rounded text-white p-3 text-capitalize">welcome to book store!!!!</h1>
-          <div class="col-sm-4 rounded m-2">
+          <div class="col-sm-3 rounded">
               <h2 class="text-center text-white rounded p-4" style="background: #7c5454;">Add New Book!!!</h2>
               <form action="" method="post" novalidate>
                   {% csrf_token %}
@@ -82,17 +82,17 @@
                   <input type="submit" class="btn btn-info" value="submit">
               </form>
           </div>
-          <div class="col sm-8">
-              <h2 class="text-center text-white rounded p-4 m-2" style="background: #7c5454;"  >Show The List of Book!!!!</h2>
-              <table class="table">
+          <div class="col-sm-9 p-5">
+              <h2 class="text-center text-white rounded p-4 " style="background: #7c5454;"  >Show The List of Book!!!!</h2>
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">id</th>
                     <th scope="col">tile</th>
                     <th scope="col">descriptions</th>
                     <th scope="col">tile</th>
-                    <th scope="col">published_date</th>
                     <th scope="col">price</th>
+                    <th scope="col">published_date</th>
                     <th scope="col">updated_at</th>
                     <th scope="col">Actions</th>
                   </tr>
