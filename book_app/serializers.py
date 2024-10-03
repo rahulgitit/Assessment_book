@@ -20,14 +20,11 @@ class UserSignupSerialier(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
-
-
-
-    # def validate(self, data):
-    #     user = authenticate(**data)
-    #     if user is None:
-    #         raise serializers.ValidationError('Invalid credentials')
-    #     return data
+    def validate(self, data):
+        user = authenticate(**data)
+        if user is None:
+            raise serializers.ValidationError('Invalid credentials')
+        return data
 
 
 class BookSerializers(serializers.ModelSerializer):

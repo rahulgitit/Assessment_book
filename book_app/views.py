@@ -12,6 +12,7 @@ from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.views import TokenObtainPairView  
 from rest_framework_simplejwt.tokens import AccessToken, RefreshToken 
+
  
 
 class SignupView(APIView):
@@ -41,7 +42,6 @@ class LoginView(APIView):
 
 
 class Bookdata(ModelViewSet):
-    
     queryset=Book.objects.all()
     serializer_class=BookSerializers
     permission_classes=[IsAuthenticatedOrReadOnly]
