@@ -37,7 +37,8 @@
                       <tr>
                         <th scope="row">{{data.id}}</th>
                         <td>{{data.title}}</td>
-                        <td>{{data.descriptions}}</td>
+                        <td>{{data.description}}</td>
+                        <td>{{data.published_date}}</td>
                         <td>
                             <a href="{% url 'edit' data.id %}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{% url 'delete' data.id %}" method="post" class="d-inline">

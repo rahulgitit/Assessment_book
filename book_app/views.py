@@ -50,10 +50,7 @@ class Bookdata(ModelViewSet):
     
     
 
-# Create your views here.
 
-def base(request):
-    return render(request, "base.html")
 def index(request):
     if request.method == "POST":
         form=bookform(request.POST)
@@ -63,8 +60,8 @@ def index(request):
     else:
         form=bookform()
     data=Book.objects.all()
-    # return render(request,"index.html",{"form":form,"data":data})
-    return render(request,"home.html",{"form":form,"data":data})
+    return render(request,"index.html",{"form":form,"data":data})
+
 # 
 
 

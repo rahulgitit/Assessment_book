@@ -13,7 +13,7 @@ urlpatterns = [
     path("login/", views.LoginView.as_view(), name="login"),
 
     path("home/", views.index, name="index"),
-    path("base/", views.base, name= "base"),
+    # path("base/", views.base, name= "base"),
     path("delete/<int:id>/", views.delete,name="delete"), # type: ignore
     path("edit/<int:id>/", views.edit,name="edit"),
 
