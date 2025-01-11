@@ -44,8 +44,9 @@ class LoginView(APIView):
 class Bookdata(ModelViewSet):
     queryset=Book.objects.all()
     serializer_class=BookSerializers
-    permission_classes=[IsAuthenticatedOrReadOnly]
     authentication_classes=[JWTAuthentication]
+    permission_classes=[IsAuthenticatedOrReadOnly]
+    
    
     
     
