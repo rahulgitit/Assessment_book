@@ -29,13 +29,16 @@ class LoginView(APIView):
         if serializers.is_valid():
             username=serializers.validated_data["username"] # type: ignore
             password=serializers.validated_data["password"] # type: ignore
+            print(username, password)
             user=authenticate(username=username,password=password)
+            print(user)
             if user is not None:
                 access_token = AccessToken.for_user(user)
                 refresh_token = RefreshToken.for_user(user)
+                print("hello", user)
                 return Response({'access': str(access_token),'refresh_token':str(refresh_token)},status=status.HTTP_200_OK)
             else:
-                return Response({"message":"invalid username or password"},status=status.HTTP_400_BAD_REQUEST)
+                return Response({"message":"invalide username or password"},status=status.HTTP_400_BAD_REQUEST)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

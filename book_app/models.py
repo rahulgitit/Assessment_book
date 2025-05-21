@@ -7,8 +7,8 @@ class Book(models.Model):
     description = models.TextField()
     published_date = models.DateField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    created_at = models.DateTimeField(auto_now=False, auto_now_add=False)
-    updated_at=models. DateTimeField (auto_now=True)
+    created_at = models.DateTimeField(auto_now=False, auto_now_add=False,blank=True, null=True) 
+    updated_at=models. DateTimeField (auto_now=True,null=True, blank=True)
     
     def clean(self):
         if not self.title:

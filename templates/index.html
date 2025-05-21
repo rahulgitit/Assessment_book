@@ -29,7 +29,9 @@
                         <th scope="col">id</th>
                         <th scope="col">Title</th>
                         <th scope="col">Descriptions</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Published_date</th>
+                        <th scope="col">Action</th>
+
                       </tr>
                     </thead>
                     <tbody>
@@ -43,7 +45,7 @@
                             <a href="{% url 'edit' data.id %}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{% url 'delete' data.id %}" method="post" class="d-inline">
                                 {% csrf_token %}
-                                <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                                <input type="submit" class="btn btn-danger" value="Delete">
                               </form>
                         </td>
                       </tr>
